@@ -1,11 +1,16 @@
 import 'dotenv/config';
 import 'app-module-path/register';
 import request from 'request';
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 
-// 아래 주소를 잘 조합해서 리퀘스트를 날리면 된다
 const url = process.env.MAIN_ADDRESS + process.env.ARCAEA_API_VERSION;
+
+function base64encode(text: string) {
+    const base64 = Buffer.from(text).toString('base64');
+    const utf8 = Buffer.from(base64).toString('utf-8');
+    return utf8;
+}
 
 class Request {
     public headers: any = {
@@ -50,12 +55,6 @@ class Request {
             });
         });
     }
-}
-
-function base64encode(text: string) {
-    const base64 = Buffer.from(text).toString('base64');
-    const utf8 = Buffer.from(base64).toString('utf-8');
-    return utf8;
 }
 
 class ArcaeaMember {
