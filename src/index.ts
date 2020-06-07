@@ -127,6 +127,7 @@ class ArcaeaMember {
 async function main() {
     const user = new ArcaeaMember();
     await user.login('tester2234', 'tester223344');
+    await user.getInfo();
 
     const cycle = await user.addFriend(454875584);
     console.time('Data mining');
