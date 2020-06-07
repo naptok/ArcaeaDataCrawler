@@ -3,7 +3,8 @@
         "**/package-lock.json": true,
         "**/tsconfig.json": true,
         "**/dist": true,
-        "**/.vscode": true
+        "**/.vscode": true,
+        "**/node_modules": true
     },
     "search.exclude": {
         "**/node_modules": true,
