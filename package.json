@@ -2,28 +2,24 @@
     "name": "arcaea-crawler",
     "version": "1.0.0",
     "description": "아르케아 점수를 크롤링 해주는 프로그램입니다.",
-    "main": "index.js",
+    "main": "dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "tsc && node dist/index.js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/naptok/ArcaeaDataCrawler.git"
+        "url": "git+https://github.com/rhea-so/ArcaeaDataCrawler.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/naptok/ArcaeaDataCrawler/issues"
+        "url": "https://github.com/rhea-so/ArcaeaDataCrawler/issues"
     },
-    "homepage": "https://github.com/naptok/ArcaeaDataCrawler#readme",
+    "homepage": "https://github.com/rhea-so/ArcaeaDataCrawler#readme",
     "dependencies": {
         "@types/node": "^14.0.11",
-        "app-module-path": "^2.2.0",
-        "dotenv": "^8.2.0",
-        "request": "^2.88.2",
-        "source-map-support": "^0.5.19",
-        "uuidv4": "^6.1.1"
+        "request": "^2.88.2"
     },
     "devDependencies": {
         "@types/request": "^2.48.5"
