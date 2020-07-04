@@ -72,13 +72,25 @@ export class ArcaeaMember {
      * @param friendId
      */
     public async getFriendPlayData(friendId: number): Promise<any> {
+        return await this.getPlayData('score/song/friend', friendId);
+    }
+
+    /**
+     * Get My Play Data (Different arguments "addFriend")
+     * @param friendId
+     */
+    public async getMyPlayData(): Promise<any> {
+        return await this.getPlayData('score/song/me');
+    }
+
+    private async getPlayData(subUrl: string, userId?: number): Promise<any> {
         try {
             const songs = songData.songs;
             let result: any[] = [];
             await Promise.all(
                 songs.map(async (song: any) => {
                     for (let difficulty = 0; difficulty <= 2; difficulty++) {
-                        const playData = await this.requester.get('score/song/friend', {
+                        const playData = await this.requester.get(subUrl, {
                             song_id: song.id,
                             difficulty,
                             start: 0,
@@ -86,15 +98,16 @@ export class ArcaeaMember {
                         });
                         await Promise.all(
                             playData.value.map(async (item: any) => {
-                                if (item.user_id === friendId) {
-                                    result.push({
-                                        song_id: item.song_id,
-                                        difficulty: item.difficulty,
-                                        score: item.score,
-                                        time_played: item.time_played,
-                                        best_clear_type: item.best_clear_type, // 0이면 트랙 로스트, 1이면 그냥 클리어, 2이면 풀 리콜, 3이면 퓨어 메모리, 4면 이지게이지 클리어, 5면 하드클
-                                    });
+                                if (!!userId && item.user_id !== userId) {
+                                    return;
                                 }
+                                result.push({
+                                    song_id: item.song_id,
+                                    difficulty: item.difficulty,
+                                    score: item.score,
+                                    time_played: item.time_played,
+                                    best_clear_type: item.best_clear_type, // 0이면 트랙 로스트, 1이면 그냥 클리어, 2이면 풀 리콜, 3이면 퓨어 메모리, 4면 이지게이지 클리어, 5면 하드클
+                                });
                             })
                         );
                     }
@@ -102,7 +115,7 @@ export class ArcaeaMember {
             );
             return result;
         } catch (err) {
-            throw new ArcaeaError('Can not get friend play data');
+            throw new ArcaeaError('Can not get play data');
         }
     }
 }

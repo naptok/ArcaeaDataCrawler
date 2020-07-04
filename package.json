@@ -1,5 +1,5 @@
 {
-    "name": "arcaeadatacrawler",
+    "name": "arcaea-crawler",
     "version": "1.0.0",
     "description": "아르케아 점수를 크롤링 해주는 프로그램입니다.",
     "main": "index.js",
@@ -22,6 +22,7 @@
         "app-module-path": "^2.2.0",
         "dotenv": "^8.2.0",
         "request": "^2.88.2",
+        "source-map-support": "^0.5.19",
         "uuidv4": "^6.1.1"
     },
     "devDependencies": {
