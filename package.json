@@ -1,8 +1,9 @@
 {
     "name": "arcaea-crawler",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "description": "아르케아 점수를 크롤링 해주는 프로그램입니다.",
     "main": "dist/index.js",
+    "types": "dist/index.d.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "tsc && node dist/index.js"

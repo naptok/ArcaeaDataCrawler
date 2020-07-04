@@ -1,8 +1,21 @@
 # Arcaea Data Crawler
 
+You can get play data of Arcaea to easy
+
+Github : https://github.com/rhea-so/ArcaeaDataCrawler
+
+## Install
+
+```sh
+npm i arcaea-crawler
+```
+
 ## Usage
 
 ```typescript
+// Import
+import { ArcaeaMember } from 'arcaea-crawler';
+
 // Create ArcaeaMember Instance
 const user = new ArcaeaMember('11bf5b37-e0b8-42e0-8dcf-dc8c4aefc001'); // DeviceId: uuidv4
 
