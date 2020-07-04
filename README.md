@@ -1,5 +1,9 @@
 # Arcaea Data Crawler
 
+![npm](https://img.shields.io/npm/v/arcaea-crawler)
+![npm type definitions](https://img.shields.io/npm/types/arcaea-crawler)
+![npm](https://img.shields.io/npm/dt/arcaea-crawler)
+
 You can get play data of Arcaea to easy
 
 Github : https://github.com/rhea-so/ArcaeaDataCrawler
