@@ -10,6 +10,10 @@ var RequestType;
     RequestType["GET"] = "GET";
 })(RequestType = exports.RequestType || (exports.RequestType = {}));
 class Request {
+    /**
+     * Inject Arcaea API Address
+     * @param address
+     */
     constructor(address, deviceId) {
         this.headers = {
             Accept: '*/*',
@@ -21,8 +25,14 @@ class Request {
             'User-Agent': 'CFNetwork/976 Darwin/18.2.0',
         };
         this.address = address;
-        this.headers.DeviceId = deviceId;
+        this.headers.DeviceId = deviceId; // like "11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
     }
+    /**
+     * Send Request
+     * @param subUrl
+     * @param method
+     * @param qs
+     */
     async send(subUrl, method, qs) {
         return new Promise((resolve, reject) => {
             let options = {

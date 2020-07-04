@@ -1,7 +1,7 @@
 {
     "name": "arcaea-crawler",
-    "version": "1.0.5",
-    "description": "아르케아 점수를 크롤링 해주는 프로그램입니다.",
+    "version": "1.0.7",
+    "description": "You can get play data of Arcaea to easy",
     "main": "dist/index.js",
     "types": "dist/index.d.js",
     "scripts": {

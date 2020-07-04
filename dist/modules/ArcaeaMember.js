@@ -10,9 +10,17 @@ const path_1 = __importDefault(require("path"));
 const Error_1 = require("./Error");
 const songData = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, '..', '..', 'song.json'), { encoding: 'utf-8' }));
 class ArcaeaMember {
+    /**
+     * Create ArcaeaMember Instance
+     */
     constructor(deviceId) {
         this.requester = new Request_1.Request('https://arcapi.lowiro.com/coffee/12/', deviceId);
     }
+    /**
+     * Login into Arcaea
+     * @param id
+     * @param password
+     */
     async login(id, password) {
         this.requester.setAuthorization('Basic ' + base64_1.base64encode(id + ':' + password));
         const result = await this.requester.post('auth/login');
@@ -23,6 +31,9 @@ class ArcaeaMember {
         }
         throw new Error_1.ArcaeaError('Can not login', result);
     }
+    /**
+     * Return Account Infomation
+     */
     async getInfo() {
         const result = await this.requester.get('user/me', {});
         if (!!result.success) {
@@ -30,6 +41,10 @@ class ArcaeaMember {
         }
         throw new Error_1.ArcaeaError('Can not get infomation', result);
     }
+    /**
+     * Add New Friend
+     * @param friendCode
+     */
     async addFriend(friendCode) {
         const result = await this.requester.post('friend/me/add', 'friend_code=' + friendCode);
         if (!!result.success) {
@@ -37,6 +52,10 @@ class ArcaeaMember {
         }
         throw new Error_1.ArcaeaError('Can not add friend', result);
     }
+    /**
+     * Delete Friend (Different arguments "addFriend")
+     * @param friendId
+     */
     async delFriend(friendId) {
         const result = await this.requester.post('friend/me/delete', 'friend_id=' + friendId);
         if (!!result.success) {
@@ -44,9 +63,17 @@ class ArcaeaMember {
         }
         throw new Error_1.ArcaeaError('Can not delete friend', result);
     }
+    /**
+     * Get Friend Play Data (Different arguments "addFriend")
+     * @param friendId
+     */
     async getFriendPlayData(friendId) {
         return await this.getPlayData('score/song/friend', friendId);
     }
+    /**
+     * Get My Play Data (Different arguments "addFriend")
+     * @param friendId
+     */
     async getMyPlayData() {
         return await this.getPlayData('score/song/me');
     }
