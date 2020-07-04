@@ -1,18 +1,18 @@
 {
-    "files.exclude": {
-        "**/package-lock.json": true,
-        "**/tsconfig.json": true,
-        "**/dist": true,
-        "**/.vscode": true,
-        "**/node_modules": true
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/*.code-search": true,
-        "**/package-lock.json": true,
-        "**/tsconfig.json": true,
-        "**/dist": true,
-        "**/.vscode": true
-    }
+  "files.exclude": {
+    "**/package-lock.json": true,
+    "**/tsconfig.json": true,
+    "**/dist": true,
+    "**/.vscode": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/package-lock.json": true,
+    "**/tsconfig.json": true,
+    "**/dist": true,
+    "**/.vscode": true
+  }
 }
